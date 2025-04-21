@@ -9,7 +9,8 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "clean": "rimraf node_modules/.vite"
+    "clean": "rimraf node_modules/.vite",
+    "test": "echo \"No tests specified\" && exit 1"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
