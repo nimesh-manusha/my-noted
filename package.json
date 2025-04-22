@@ -10,8 +10,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "clean": "rimraf node_modules/.vite",
-    "test": "echo \"No tests yet\" && exit 0"
-
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
