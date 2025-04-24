@@ -10,7 +10,12 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "clean": "rimraf node_modules/.vite",
-    "test": "echo \"No tests specified\" && exit 0"
+
+    "test": "npm run test:unit && npm run test:integration && npm run test:e2e",
+
+    "test:unit": "vitest run --dir tests/unit",
+    "test:integration": "vitest run --dir tests/integration",
+    "test:e2e": "echo \"E2E tests go here\" && exit 0"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -84,6 +89,7 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^1.0.0"
   }
 }
