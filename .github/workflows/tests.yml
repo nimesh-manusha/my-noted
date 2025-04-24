@@ -1,0 +1,38 @@
+name: Parallel Test Execution
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        suite: [unit, integration, e2e]
+
+    name: Run ${{ matrix.suite }} tests
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run ${{ matrix.suite }} tests
+        run: |
+          if [[ "${{ matrix.suite }}" == "unit" ]]; then
+            npm run test:unit
+          elif [[ "${{ matrix.suite }}" == "integration" ]]; then
+            npm run test:integration
+          elif [[ "${{ matrix.suite }}" == "e2e" ]]; then
+            npm run test:e2e
+          fi
